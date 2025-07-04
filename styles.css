@@ -73,14 +73,17 @@
         @media (max-width: 600px) {
             nav {
                 justify-content: space-between;
-                width: 90%;
-                left: 50%;
-                transform: translateX(-50%);
+                width: 100%; /* Changed from 90% to 100% */
+                left: 0; /* Changed from 50% to 0 */
+                transform: translateX(0); /* Changed from -50% to 0 */
+                padding: 10px 15px;
+                border-radius: 0; /* Remove border-radius for full width */
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
+                align-items: center; /* Added to center items horizontally */
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -96,7 +99,9 @@
             }
 
             .nav-links ul {
+                display: flex;
                 flex-direction: column;
+                align-items: center; /* Center items horizontally */
                 width: 100%;
                 gap: 20px;
             }
@@ -107,6 +112,68 @@
 
             .burger-menu {
                 display: flex;
+            }
+        }
+
+        /* Extra small device support for navbar (≤450px) */
+        @media (max-width: 450px) {
+            nav {
+                padding: 8px 8px;
+            }
+
+            .burger-menu {
+                padding: 4px;
+                width: 32px;
+                height: 32px;
+            }
+
+            .burger-menu .bar {
+                width: 20px;
+                height: 3px;
+                margin: 3px 0;
+            }
+
+            .nav-links {
+                padding: 10px 0;
+            }
+
+            .nav-links ul {
+                gap: 10px;
+            }
+
+            .nav-links ul li {
+                font-size: 1rem;
+            }
+        }
+
+        /* Ultra small device support for navbar (≤350px) */
+        @media (max-width: 350px) {
+            nav {
+                padding: 4px 2px;
+            }
+
+            .burger-menu {
+                padding: 2px;
+                width: 24px;
+                height: 24px;
+            }
+
+            .burger-menu .bar {
+                width: 12px;
+                height: 2px;
+                margin: 2px 0;
+            }
+
+            .nav-links {
+                padding: 5px 0;
+            }
+
+            .nav-links ul {
+                gap: 6px;
+            }
+
+            .nav-links ul li {
+                font-size: 0.85rem;
             }
         }
 
@@ -588,6 +655,12 @@
             font-size: 3rem;
         }
 
+        @media (max-width: 600px) {
+            .contact-icon {
+                font-size: 2rem;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-grid {
@@ -626,17 +699,19 @@
             }
         }
 
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* Scroll animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
         
         /* Remove floating elements for this design */
         .floating {
