@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,12 +34,12 @@ const Navbar = () => {
             </div>
             <div className={`nav-links ${isOpen ? 'active' : ''}`} id="nav-links">
                 <ul>
-                    <li><Link to="/" className={activeSection === 'home' ? 'active' : ''} onClick={() => setIsOpen(false)}>Home</Link></li>
-                    <li><Link to="/about" className={activeSection === 'about' ? 'active' : ''} onClick={() => setIsOpen(false)}>About</Link></li>
-                    <li><Link to="/skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => setIsOpen(false)}>Skills</Link></li>
-                    <li><Link to="/projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => setIsOpen(false)}>Projects</Link></li>
-                    <li><Link to="/achievements" className={activeSection === 'achievements' ? 'active' : ''} onClick={() => setIsOpen(false)}>Achievements</Link></li>
-                    <li><Link to="/contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>Contact</Link></li>
+                    <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={() => setIsOpen(false)}>Home</a></li>
+                    <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => setIsOpen(false)}>About</a></li>
+                    <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => setIsOpen(false)}>Skills</a></li>
+                    <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => setIsOpen(false)}>Projects</a></li>
+                    <li><a href="#achievements" className={activeSection === 'achievements' ? 'active' : ''} onClick={() => setIsOpen(false)}>Achievements</a></li>
+                    <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>Contact</a></li>
                 </ul>
             </div>
         </nav>

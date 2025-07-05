@@ -275,6 +275,38 @@
             box-shadow: 0 10px 30px rgba(192, 160, 128, 0.2);
         }
 
+        @media (max-width: 500px){
+            .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--light);
+            animation: fadeIn 0.7s ease-out;
+            transition: text-shadow 0.7s ease;
+        }
+
+        .hero p {
+            font-size: 1.0rem;
+            color: var(--gray);
+            margin-bottom: 100px;
+            animation: fadeIn 1.5s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 30px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.5s ease;
+            letter-spacing: 1px;
+        }
+        }
+
         /* About Section */
         .about {
             background: #212121;
@@ -315,6 +347,37 @@
             font-size: 1.2rem;
             color: var(--gray);
             margin-bottom: 25px;
+        }
+
+        @media (max-width: 600px) {
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--primary);
+            box-shadow: 0 0 40px rgba(192, 160, 128, 0.3);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            font-size: 1.0rem;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
         }
 
         /* Skills Section */
@@ -388,6 +451,60 @@
         .skill-category .skill span {
             font-size: 1rem;
             color: var(--gray);
+        }
+        
+        @media (max-width: 600px) {
+            .skills-text h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary);
+        }
+
+        .skill-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .skill-category {
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border-color: var(--primary);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .skill-category .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-category .skill {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 12px;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
         }
 
         /* Projects Section */
@@ -482,6 +599,82 @@
             margin-top: 20px;
         }
         
+        /* Responsive project buttons for mobile */
+        @media (max-width: 600px) {
+          .project-buttons {
+            gap: 10px;
+            flex-direction: row;
+            align-items: stretch;
+          }
+          .project-buttons a,
+          .project-buttons button {
+            padding: 8px 0;
+            font-size: 0.8rem;
+            text-align: center;
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+          }
+        }
+
+        @media (max-width: 600px) {
+        .projects {
+            background: #212121;
+        }
+
+        .projects h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+            color: var(--primary);
+        }
+
+
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 0.8rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+        }
 
         /* Achievements Section */
         .achievements {
@@ -605,6 +798,52 @@
             color: var(--dark);
         }
 
+        @media (max-width: 600px) {
+            .achievements {
+            background: var(--dark);
+        }
+
+        .achievements h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+            color: var(--primary);
+            word-break: break-word;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Default for smaller screens */
+            gap: 20px;
+        }
+
+        .achievement-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .achievement-item p {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .achievement-link {
+            font-size: 1.0rem;
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        }
+
         /* Contact Section */
         .contact {
             background: #212121;
@@ -637,8 +876,8 @@
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 15px 30px;
+            gap: 20px;
+            padding: 6px 30px;
             border-radius: 50px;
             text-decoration: none;
             color: var(--light);
@@ -652,13 +891,59 @@
         }
 
         .contact-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         @media (max-width: 600px) {
-            .contact-icon {
-                font-size: 2rem;
-            }
+            .contact {
+            background: #212121;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
         }
 
         /* Responsive Design */
@@ -712,20 +997,33 @@
     opacity: 1;
     transform: translateY(0);
 }
-        
-        /* Remove floating elements for this design */
-        .floating {
-            display: none;
-        }
+      
+.floating {
+    display: none;
+}
 
-        footer {
-            padding: 10px 0;
-            text-align: center;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
-        }
+footer {
+    padding: 10px 0;
+    text-align: center;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  footer {
+    padding: 6px 0;
+    text-align: center;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+}

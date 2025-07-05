@@ -70,7 +70,7 @@ const AppContent = () => {
             // Clean up any particles that might still be floating
             document.querySelectorAll('div[style*="particleFloat"]').forEach(p => p.remove());
         };
-    }, [location]);
+    }, [location.pathname]); // Only restart when the path changes, not the hash
 
     return (
         <>

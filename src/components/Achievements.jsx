@@ -4,7 +4,7 @@ const Achievements = () => {
     return (
         <section id="achievements" className="achievements">
             <div className="container">
-                <h2 className="fade-in">Achievements & Extracurriculars</h2>
+                <h2 className="fade-in">Achievements</h2>
                 <div className="achievements-grid">
                     <div className="achievement-item glass fade-in">
                         <h3>DSA Mastery (GeeksforGeeks)</h3>
@@ -38,3 +38,4 @@ const Achievements = () => {
 };
 
 export default Achievements;
+

@@ -57,7 +57,7 @@ const Projects = () => {
                         <div className="project-image"><img src="/AimTrainer.png" alt="TaskFlow Project" /></div>
                         <div className="project-info">
                             <h3>AimTrainer</h3>
-                            <p>A modern project management tool designed for remote teams with real-time collaboration, time tracking, and advanced analytics.</p>
+                            <p>Built a real-time aim trainer game with difficulty levels and time-based scoring using event-driven programming and optimized game loops for smooth performance.</p>
                             <div className="project-tags">
                                 <span className="tag">Python</span>
                                 <span className="tag">PyGame</span>
