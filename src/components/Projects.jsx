@@ -18,6 +18,31 @@ const Projects = () => {
                 <h2 className="fade-in">Featured Projects</h2>
                 
                 <div className="projects-grid">
+
+                    <div className="project-card glass fade-in">
+                        <div className="project-image"><img src="/StudyForge.png" alt="StudyForge Project" /></div>
+                        <div className="project-info">
+                            <h3>StudyForge</h3>
+                            <p>
+                                All-in-one AI-powered study assistant with note-taking, Pomodoro timer, to-do lists, and analytics. Built with Next.js, React, and Genkit.
+                            </p>
+                            <div className="project-tags">
+                                <span className="tag">Next.js</span>
+                                <span className="tag">React</span>
+                                <span className="tag">TailwindCSS</span>
+                                <span className="tag">ShadCN UI</span>
+                                <span className="tag">Genkit</span>
+                                <span className="tag">Google AI</span>
+                                <span className="tag">MongoDB</span>
+                                <span className="tag">JWT</span>
+                            </div>
+                            <div className="project-buttons">
+                                <a href="https://github.com/RizwanMolla/StudyForge" className="cta-button project-button">Repo</a>
+                                <a href="https://studyforge-rm.vercel.app/" className="cta-button project-button">Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div className="project-card glass fade-in">
                         <div className="project-image"><img src="/EduLearn.png" alt="EduLearn Project" /></div>
                         <div className="project-info">
