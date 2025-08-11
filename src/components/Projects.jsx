@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from 'react';
+
+// Custom hook to detect mobile view
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 600);
+    useEffect(() => {
+        const onResize = () => setIsMobile(window.innerWidth <= 600);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+    return isMobile;
+}
 import './projects.css';
 
 const Projects = () => {
@@ -79,65 +90,107 @@ const Projects = () => {
         }
     };
 
-    return (
-        <section id="projects" className="projects">
-            <div className="container">
-                <h2 className="fade-in">Featured Projects</h2>
-                
-                <div className="projects-carousel">
-                    <div className="carousel-container">
-                        {projects.map((project, index) => (
-                            <div 
-                                key={project.id}
-                                className={`project-card glass carousel-card ${getCardPosition(index)}`}
-                                onClick={() => handleCardClick(index)}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <div className="project-image">
-                                    <img src={project.image} alt={`${project.title} Project`} />
-                                </div>
-                                <div className="project-info">
-                                    <div className="project-content">
-                                        <h3>{project.title}</h3>
-                                        <p>{project.description}</p>
-                                        <div className="project-tags">
-                                            {project.tags.map((tag, tagIndex) => (
-                                                <span key={tagIndex} className="tag">{tag}</span>
-                                            ))}
+        const isMobile = useIsMobile();
+        return (
+            <section id="projects" className="projects">
+                <div className="container">
+                    <h2 className="fade-in">Featured Projects</h2>
+                    {isMobile ? (
+                        <div className="projects-grid-mobile">
+                            {projects.map((project) => (
+                                <div key={project.id} className="project-card glass">
+                                    <div className="project-image">
+                                        <img src={project.image} alt={`${project.title} Project`} />
+                                    </div>
+                                    <div className="project-info">
+                                        <div className="project-content">
+                                            <h3>{project.title}</h3>
+                                            <p>{project.description}</p>
+                                            <div className="project-tags">
+                                                {project.tags.map((tag, tagIndex) => (
+                                                    <span key={tagIndex} className="tag">{tag}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="project-buttons">
+                                            <a
+                                                href={project.repo}
+                                                className="cta-button project-button"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Repo
+                                            </a>
+                                            {project.live && (
+                                                <a
+                                                    href={project.live}
+                                                    className="cta-button project-button"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    Live
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
-                                    <div className="project-buttons">
-                                        <a 
-                                            href={project.repo} 
-                                            className="cta-button project-button"
-                                            onClick={(e) => e.stopPropagation()}
-                                        >
-                                            Repo
-                                        </a>
-                                        {project.live && (
-                                            <a 
-                                                href={project.live} 
-                                                className="cta-button project-button"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                Live
-                                            </a>
-                                        )}
-                                    </div>
                                 </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="projects-carousel">
+                            <div className="carousel-container">
+                                {projects.map((project, index) => (
+                                    <div
+                                        key={project.id}
+                                        className={`project-card glass carousel-card ${getCardPosition(index)}`}
+                                        onClick={() => handleCardClick(index)}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave}
+                                    >
+                                        <div className="project-image">
+                                            <img src={project.image} alt={`${project.title} Project`} />
+                                        </div>
+                                        <div className="project-info">
+                                            <div className="project-content">
+                                                <h3>{project.title}</h3>
+                                                <p>{project.description}</p>
+                                                <div className="project-tags">
+                                                    {project.tags.map((tag, tagIndex) => (
+                                                        <span key={tagIndex} className="tag">{tag}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className="project-buttons">
+                                                <a
+                                                    href={project.repo}
+                                                    className="cta-button project-button"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
+                                                    Repo
+                                                </a>
+                                                {project.live && (
+                                                    <a
+                                                        href={project.live}
+                                                        className="cta-button project-button"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        Live
+                                                    </a>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                    
-                    {/* Project Indicator */}
-                    <div className="project-indicator">
-                        <span>{activeProject + 1}/{projects.length}</span>
-                    </div>
+                            {/* Project Indicator */}
+                            <div className="project-indicator">
+                                <span>{activeProject + 1}/{projects.length}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
-            </div>
-        </section>
-    );
+            </section>
+        );
 };
 
 export default Projects;
