@@ -29,11 +29,11 @@ const Projects = () => {
         {
             id: 1,
             title: "EduLearn",
-            description: "Modern EdTech platform with responsive design, comprehensive course listings, and intuitive navigation for seamless online learning.",
+            description: "Full-stack EdTech app with secure authentication, profile tools, and course browsing for an enhanced learning experience.",
             image: "/EduLearn.png",
-            tags: ["React", "Node.js", "TailwindCSS", "DaisyUI"],
+            tags: ["MongoDB", "Express", "React", "Node.js", "TailwindCSS"],
             repo: "https://github.com/RizwanMolla/EduLearn-EdTech_Project",
-            live: "https://edu-learn-ed-tech-project.vercel.app/"
+            live: "https://edulearn-rm.vercel.app/"
         },
         {
             id: 2,
